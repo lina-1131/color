@@ -1,0 +1,123 @@
+/* =====================
+   Global & Mobile View
+   ===================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #fafafa;
+  color: #222;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+main {
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr; /* موبايل: عمود واحد */
+  gap: 10px; /* فراغ بين الصور */
+}
+
+figure {
+  margin: 0;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 0;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+figcaption {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.back-to-top {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* =====================
+   Tablet View (772px)
+   ===================== */
+@media (min-width: 772px) {
+  .grid {
+    grid-template-columns: 1fr 1fr; /* عمودين */
+  }
+
+  figure {
+    border-radius: 50%; /* الصور دائرية */
+  }
+
+  .grid figure:last-child {
+    grid-column: span 2; /* آخر صورة تأخذ صفين */
+  }
+}
+
+/* =====================
+   Large Screen (992px)
+   ===================== */
+@media (min-width: 992px) {
+  figure {
+    border-radius: 0; /* الصور مربعة */
+  }
+
+  /* كل ثالث صورة تأخذ صفين */
+  .grid figure:nth-of-type(3n) {
+    grid-column: span 2;
+  }
+}
+
+/* =====================
+   Prefers Reduced Motion
+   ===================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto; /* ألغِ التمرير السلس */
+  }
+}
+
+/* =====================
+   Dark Mode
+   ===================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+
+  figure {
+    background-color: #222;
+    border: 2px solid black;
+    color: #ffeb3b; /* أصفر فاتح */
+  }
+
+  .back-to-top {
+    color: #ffeb3b;
+  }
+}
